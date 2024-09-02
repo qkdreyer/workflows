@@ -1,0 +1,19 @@
+on:
+  pull_request: ~
+jobs:
+  true:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        id: update
+        with:
+          script: return true
+      - run: echo ${{ steps.update.outputs.result == 'true' && '--update-snapshots' || '' }}
+  false:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        id: update
+        with:
+          script: return false
+      - run: echo ${{ steps.update.outputs.result == 'true' && '--update-snapshots' || '' }}
