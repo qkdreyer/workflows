@@ -1,6 +1,12 @@
 on:
   pull_request: ~
 jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
   true:
     runs-on: ubuntu-latest
     steps:
