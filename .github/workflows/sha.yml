@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch: ~
+  schedule:
+    - cron: "*/5 * * * *"
+  push:
+    branches:
+      - master
+jobs:
+  update:
+    #if: github.event.before != '0000000000000000000000000000000000000000'
+    runs-on: self-hosted
+    steps:
+      - run: echo '${{ toJson(github) }}'
