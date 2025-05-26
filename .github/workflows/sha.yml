@@ -8,6 +8,6 @@ on:
 jobs:
   update:
     #if: github.event.before != '0000000000000000000000000000000000000000'
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - run: echo '${{ toJson(github) }}'
