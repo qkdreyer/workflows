@@ -1,0 +1,5 @@
+runs:
+  using: composite
+  steps:
+    - run: echo env ${{ env.IS_PR }}
+    - run: echo secret ${{ secret.SECRET }}
